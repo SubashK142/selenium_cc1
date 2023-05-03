@@ -1,0 +1,53 @@
+package cc_1.pro;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class cc1q2 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriverManager.edgedriver().setup();
+    	WebDriver driver=new EdgeDriver();
+		driver.get("https://www.saucedemo.com/");
+		Thread.sleep(2000);
+		driver.manage().window().maximize();
+		WebElement name=driver.findElement(By.xpath("//*[@id=\"user-name\"]"));
+		name.sendKeys("standard_user");
+		WebElement pwd=driver.findElement(By.xpath("//*[@id=\"password\"]"));
+		pwd.sendKeys("secret_sauce");
+		WebElement btn=driver.findElement(By.xpath("//*[@id=\"login-button\"]"));
+		btn.click();
+		WebElement c1=driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/div/span/select"));
+		c1.click();
+		WebElement c2=driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/div/span/select/option[1]"));
+		c2.click();
+		String e1=driver.findElement(By.xpath("//*[@id=\"item_4_title_link\"]/div")).getText();
+		System.out.println("A to Z Order's 1st Product Title: "+e1);
+		WebElement c3=driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/div/span/select/option[2]"));
+		c3.click();
+		String e2=driver.findElement(By.xpath("//*[@id=\"item_3_title_link\"]/div")).getText();
+		System.out.println("Z to A Order's 1st Product Title: "+e2);
+		Thread.sleep(1000);
+		WebElement c4=driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/div/span/select/option[3]"));
+		c4.click();
+		String e3=driver.findElement(By.xpath("//*[@id=\"item_2_title_link\"]/div")).getText();
+		System.out.println("Low to High Order's 1st Product Title: "+e3);
+		WebElement c5=driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/div/span/select/option[4]"));
+		c5.click();
+		String e4=driver.findElement(By.xpath("//*[@id=\"item_5_title_link\"]/div")).getText();
+		System.out.println("High to Low Order's 1st Product Title: "+e4);
+		Thread.sleep(1000);
+		
+		
+
+	}
+
+}
